@@ -10,14 +10,14 @@ ru = 1234567
 acertos_e_erros: List[bool] = []
 
 # Define o viés e todos os pesos iniciais como 1
-pesos = np.ones([1, 7], dtype=np.int32).flatten()
+pesos = np.ones([1, 7], dtype=np.float32).flatten()
 vies = 1
 
 print('Pesos originais: ', pesos)
 
 # Gera um array aleatório de 50 linhas de 7 dígitos, cada linha é um RU
 np.random.seed(42)
-amostras = np.random.randint(0, 9, size=[50, 7], dtype=np.int32)
+amostras = np.random.randint(0, 9, size=[130, 7], dtype=np.int32)
 
 for amostra in amostras:
 
@@ -37,7 +37,7 @@ for amostra in amostras:
 
     acertos_e_erros.append(resultado_obtido == resultado_esperado)
     erro_amostral = resultado_esperado - resultado_obtido
-    taxa_aprendizagem = 0.12
+    taxa_aprendizagem = 0.01
 
     # Se houver erro amostral
     if erro_amostral:
