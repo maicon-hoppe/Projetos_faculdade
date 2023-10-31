@@ -1,0 +1,14 @@
+[
+    {
+        "titulo": "Iracema",
+        "capa": "pdfs/capas/capa_Iracema.jpg",
+        "pdf": "pdfs/JA-Iracema.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "O Guaraní",
+        "capa": "pdfs/capas/capa_O_Gurani.jpg",
+        "pdf": "pdfs/JA-O_guarani.pdf",
+        "autor":"José de Alencar"
+    }
+]

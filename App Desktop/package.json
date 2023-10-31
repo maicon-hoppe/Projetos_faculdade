@@ -1,0 +1,21 @@
+{
+  "name": "app-desktop",
+  "version": "1.0.0",
+  "description": "App electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Maicon J. Hoppe",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-packager": "^17.1.2",
+    "sqlite3": "^5.1.6"
+  },
+  "dependencies": {
+    "electron": "^27.0.2"
+  }
+}
