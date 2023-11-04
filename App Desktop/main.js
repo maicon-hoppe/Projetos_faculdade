@@ -22,7 +22,8 @@ app.whenReady()
     .then(() => createWindow())
 
 
-let db = new sqlite.Database("livros.sqlite3")
+let dbPath = path.join(__dirname, "livros.sqlite3")
+let db = new sqlite.Database(dbPath)
 
 ipcMain.handle("db", (_, query) =>
 {

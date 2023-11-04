@@ -4,7 +4,11 @@
   "description": "App electron",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . app-desktop --arch x64 --platform linux",
+    "postinstall": "electron-builder install-app-deps",
+    "foo": "electron-builder --linux deb",
+    "fii": "electron-installer-debian --src ./app-desktop-linux-x64/ --dest ./dist/ --arch amd64"
   },
   "keywords": [
     "electron"
@@ -12,10 +16,12 @@
   "author": "Maicon J. Hoppe",
   "license": "MIT",
   "devDependencies": {
+    "electron": "^27.0.2",
+    "electron-installer-debian": "^3.2.0",
     "electron-packager": "^17.1.2",
     "sqlite3": "^5.1.6"
   },
   "dependencies": {
-    "electron": "^27.0.2"
+    "electron-squirrel-startup": "^1.0.0"
   }
 }

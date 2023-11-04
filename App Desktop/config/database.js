@@ -1,13 +1,16 @@
 const sqlite = require('sqlite3')
 const valores = require('./valores.json')
 
+/* 
+* Script para popular o banco de dados
+*/
 
 const db = new sqlite.Database('livros.sqlite3')
 
 db.serialize(() =>
 {
     db.run(`CREATE TABLE IF NOT EXISTS livros (
-            id INT PRIMARY KEY,
+            id INTEGER PRIMARY KEY,
             titulo TEXT NOT NULL UNIQUE,
             capa TEXT NOT NULL UNIQUE,
             pdf TEXT NOT NULL UNIQUE,

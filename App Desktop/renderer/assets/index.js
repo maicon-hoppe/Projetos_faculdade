@@ -36,15 +36,56 @@ customElements.define(
 )
 
 
-function configLink(elemento)
+function bookSection(autor, bookArray)
 {
-    let link = elemento.shadowRoot.querySelector('a')
-    link.setAttribute('href', elemento.dataset.page)
+    let section = document.createElement('section')
+    let autorName = document.createElement('h2')
 
-    localStorage.setItem('pdf', elemento.dataset.pdf)
+
+    section.setAttribute('class', 'books')
+
+    autorName.innerText = autor
+    section.appendChild(autorName)
+
+    for ( const book of bookArray )
+    {
+        let html = `
+        <frame-livro
+            onclick="configLink(this)"
+            data-page="pdfViewer.html"
+            data-pdf=${book['pdf']}
+        >
+            <img
+                slot="bookCover"
+                src=${book['capa']}
+                alt=${book['titulo']}
+            >
+            <span slot="bookName">${book['titulo']}</span>
+        </frame-livro>`
+
+        section.insertAdjacentHTML('beforeend', html)
+    }
+
+    document.body.appendChild(section)
 }
 
+function configLink(element)
+{
+    let link = element.shadowRoot.querySelector('a')
+    link.setAttribute('href', element.dataset.page)
 
-let response = main.asyncCall('db', "SELECT titulo FROM livros")
+    localStorage.setItem('pdf', element.dataset.pdf)
+}
 
-response.then(valor => console.log(valor)).catch(err => console.log(err))
+(async () =>
+{
+    let listaAutores = await main.asyncCall('db', 'SELECT DISTINCT autor FROM livros')
+
+    for (const autores of listaAutores)
+    {
+        let autor = autores['autor']
+        let book = await main.asyncCall('db', `SELECT * FROM livros WHERE autor='${autor}'`)
+        
+        bookSection(autor, book)
+    }
+})()
