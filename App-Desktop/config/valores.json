@@ -1,0 +1,44 @@
+[
+    {
+        "titulo": "Iracema",
+        "capa": "pdfs/capas/capa_Iracema.jpg",
+        "pdf": "pdfs/JA-Iracema.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "O Guaraní",
+        "capa": "pdfs/capas/capa_O_Gurani.jpg",
+        "pdf": "pdfs/JA-O_guarani.pdf",
+        "autor":"José de Alencar"
+    },
+    {
+        "titulo": "O Tronco de Ipê",
+        "capa": "pdfs/capas/capa_O_tronco_de_ipe.jpg",
+        "pdf": "pdfs/JA-O_Tronco_do_Ipe.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "O Gaúcho",
+        "capa": "pdfs/capas/capa_O_gaucho.jpg",
+        "pdf": "pdfs/JA-O_gaucho.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "O Sertanejo",
+        "capa": "pdfs/capas/capa_O_sertanejo.jpg",
+        "pdf": "pdfs/JA-O_sertanejo.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "Senhora",
+        "capa": "pdfs/capas/capa_Senhora.jpg",
+        "pdf": "pdfs/JA-Senhora.pdf",
+        "autor":"José de Alencar"
+    },
+    {
+        "titulo": "Vidas Secas",
+        "capa": "pdfs/capas/capa_Vidas_secas.png",
+        "pdf": "pdfs/GR-Vidas_secas.pdf",
+        "autor": "Graciliano Ramos"
+    }
+]

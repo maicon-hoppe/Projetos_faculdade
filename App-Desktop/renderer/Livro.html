@@ -1,0 +1,53 @@
+<template>
+    <style>
+        a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #container {
+            display: inline-flex;
+            flex-flow: row wrap;
+
+            height: 288px;
+            width: 206px;
+
+            border-radius: 10px;
+            box-shadow: 1px 1px black;
+
+            background: white center center no-repeat scroll;
+            background-size: cover;
+        }
+
+        #container p {
+            width: 100%;
+            padding: 5px;
+            margin: 0px;
+    
+            border-radius: 0px 0px 10px 10px;
+            background-color: rgba(0, 255, 255);
+
+            color: black;
+            font-weight: bold;
+        }
+
+        ::slotted(img), img {
+            height: 260px;
+            width: 206px;
+
+            border-radius: 10px 10px 0px 0px;
+        }
+    </style>
+
+    <a href="#">
+        <section id="container">
+            <slot name="bookCover">
+                <img src="#" alt="capa">
+            </slot>
+            <p>
+                <slot name="bookName">Livro</slot>
+            </p>
+        </section>
+    </a>
+</template>

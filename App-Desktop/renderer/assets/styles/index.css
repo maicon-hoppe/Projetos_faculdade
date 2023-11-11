@@ -1,0 +1,17 @@
+section {
+    padding: 10px;
+    margin: 10px;
+
+    overflow-x: scroll;
+
+    background-color: darkgoldenrod;
+}
+
+section::-webkit-scrollbar { display: none; }
+
+section > #books {
+    display: flex;
+    gap: 10px;
+
+    scroll-behavior: smooth;
+}
