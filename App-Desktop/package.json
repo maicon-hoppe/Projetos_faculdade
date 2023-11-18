@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "refresh-data": "node config/database.js",
     "build-win": "electron-packager . app-desktop --out dist/ --arch x64 --platform win32 --extra-resource node_modules/sqlite3/lib/binding/napi-v6-win32-unknown-x64",
     "build-linux": "electron-packager . app-desktop --out dist/ --arch x64 --platform linux",
     "prepack-linux": "cd dist/app-desktop-linux-x64/resources/app && npm i sqlite3",

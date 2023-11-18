@@ -1,17 +1,41 @@
+#initial-header {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0px 5px;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+#initial-header >  button {
+    height: 40px;
+    width: 40px;
+    padding: 4px 2px 1px 2px;
+}
+
 section {
     padding: 10px;
     margin: 10px;
 
     overflow-x: scroll;
 
-    background-color: darkgoldenrod;
+    background-color: #C5F345;
 }
 
 section::-webkit-scrollbar { display: none; }
 
-section > #books {
+section > .books {
     display: flex;
     gap: 10px;
 
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+section > .books > frame-livro {
+    scroll-snap-align: center;
+}
+
+section > .books > button {
+    background-color: white;
 }

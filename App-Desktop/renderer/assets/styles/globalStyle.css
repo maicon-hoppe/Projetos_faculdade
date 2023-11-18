@@ -1,3 +1,11 @@
+/* Paleta
+* #524BAD
+* #FA7725
+* #210FFA
+* #DEFE87
+* #23AD0E
+*/
+
 body {
     padding: 0px;
     margin: 0px;
@@ -6,4 +14,15 @@ body {
     font-family: sans-serif;
 
     /* background-color: darkslategrey; */
+}
+
+button {
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    background-color: transparent;
+}
+
+button:active {
+    box-shadow: inset 1px 1px 1px black;
+    background-color: darkcyan;
 }

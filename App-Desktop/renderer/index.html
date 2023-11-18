@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="assets/styles/globalStyle.css">
     <link rel="stylesheet" href="assets/styles/index.css">
     <script src="assets/index.js" defer></script>
     <title>Documento</title>
 </head>
 <body>
-    <h1>Olá Mundo</h1>
+    <header id="initial-header">
+        <h1>Leitura</h1>
+        <button id="add-books">
+            <span class="material-symbols-outlined">
+                add_box
+            </span>
+        </button>
+    </header>
     <hr>
+    <dialog id="add-book-dialog">
+        <div>
+            <label for="title">Título: </label>
+            <input type="text" id="title">
+        </div>
+        <input type="file" id="pdf">
+        <button type="button">Adicionar</button>
+    </dialog>
 </body>
 </html>

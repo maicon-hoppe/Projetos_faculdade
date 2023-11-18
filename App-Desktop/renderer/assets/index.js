@@ -1,3 +1,6 @@
+/*
+* Aquisição do template para o elemento personalizado
+*/
 async function getTemplate(path)
 {
     let caminho = await fetch(path)
@@ -8,7 +11,9 @@ async function getTemplate(path)
     return html.querySelector('head > template')
 }
 
-
+/*
+* Definição do elemento personalizado <frame-livro>
+*/
 customElements.define(
     "frame-livro",
     class FrameLivro extends HTMLElement
@@ -35,27 +40,41 @@ customElements.define(
     }
 )
 
-
+/*
+* Criação de uma seção com livros de um autor
+*/
 function bookSection(autor, bookArray)
 {
-    let section = document.createElement('section')
-    let autorName = document.createElement('h2')
-    let books = document.createElement('section')
-    let scrollButtonR = document.createElement('button')
+    const section = document.createElement('section')
+    const autorName = document.createElement('h2')
+    const books = document.createElement('section')
+    const scrollButtonL = document.createElement('button')
+    const scrollButtonR = document.createElement('button')
 
-    let styleScrollButtonR = scrollButtonR.style
+    const styleScrollButtonL = scrollButtonL.style
+    const styleScrollButtonR = scrollButtonR.style
 
     autorName.innerText = autor
     section.appendChild(autorName)
-    
-    books.setAttribute('id', 'books')
+
+    books.setAttribute('class', 'books')
 
     for ( const book of bookArray )
     {
+        let page 
+        if ( book['titulo'] === "Adicionar Livro" )
+        {
+            page = "#"
+        }
+        else
+        {
+            page = "pdfViewer.html"
+        }
+
         let html = `
         <frame-livro
             onclick="configLink(this)"
-            data-page="pdfViewer.html"
+            data-page=${page}
             data-pdf=${book['pdf']}
         >
             <img
@@ -63,13 +82,20 @@ function bookSection(autor, bookArray)
                 src=${book['capa']}
                 alt=${book['titulo']}
             >
-            <span slot="bookName">${book['titulo']}</span>
-        </frame-livro>`
+            <p slot="bookName">${book['titulo']}</p>
+        </frame-livro>
+        `
 
         books.insertAdjacentHTML('beforeend', html)
     }
 
+    scrollButtonL.innerText = "<"
+    styleScrollButtonL.display = "none"
+    styleScrollButtonL.position = "absolute"
+    styleScrollButtonL.marginTop = "133.5px"
+
     scrollButtonR.innerText = ">"
+    styleScrollButtonR.display = bookArray.length > 3 ? "initial" : "none"  // Mudaar o 3
     styleScrollButtonR.position = "absolute"
     styleScrollButtonR.right = "30px"
     styleScrollButtonR.marginTop = "133.5px"
@@ -79,19 +105,32 @@ function bookSection(autor, bookArray)
         // Mudar esse valor
         books.scrollLeft += 200
     })
-    
-    books.addEventListener('scrollend', () => 
+
+    scrollButtonL.addEventListener('click', () =>
     {
-        let isMaxScroll = books.scrollLeft === books.scrollWidth - books.clientWidth
-        styleScrollButtonR.display = isMaxScroll ? "none" : "initial"
+        // Mudar esse valor
+        books.scrollLeft -= 200
     })
 
-    books.appendChild(scrollButtonR)
+    books.addEventListener('scroll', () => 
+    {
+        let isScrollStart = books.scrollLeft === 0
+        styleScrollButtonL.display = isScrollStart ? "none" : "initial"
+
+        let isMaxScroll = books.scrollLeft === books.scrollWidth - books.clientWidth
+        styleScrollButtonR.display = isMaxScroll ? "none" : "initial"
+        
+    })
+
+    books.append(scrollButtonL, scrollButtonR)
 
     section.appendChild(books)
     document.body.appendChild(section)
 }
 
+/*
+* Define o caminho para página de leitura pdfViewer.html
+*/
 function configLink(element)
 {
     let link = element.shadowRoot.querySelector('a')
@@ -100,15 +139,27 @@ function configLink(element)
     localStorage.setItem('pdf', element.dataset.pdf)
 }
 
+/*
+* Execução do programa
+*/
 (async () =>
 {
-    let listaAutores = await main.asyncCall('db', 'SELECT DISTINCT autor FROM livros')
+    const listaAutores = await main.asyncCall('db', 'SELECT DISTINCT autor FROM livros')
 
     for (const autores of listaAutores)
     {
         let autor = autores['autor']
         let book = await main.asyncCall('db', `SELECT * FROM livros WHERE autor='${autor}'`)
-        
+
         bookSection(autor, book)
     }
+
+    const addBookDialog = document.querySelector('#add-book-dialog')
+    
+    const addBooksButton = document.querySelector('#add-books')
+    addBooksButton.addEventListener('click', () => addBookDialog.setAttribute('open', true))
+
+    const addBooksCover = document.querySelector("frame-livro[data-page='#']")
+    addBooksCover.addEventListener('click', () => addBookDialog.setAttribute('open', true))
+    
 })()

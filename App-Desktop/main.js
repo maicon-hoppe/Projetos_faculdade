@@ -1,4 +1,9 @@
-const { BrowserWindow, app, ipcMain } = require('electron');
+const {
+    BrowserWindow,
+    ipcMain,
+    app,
+    Menu
+} = require('electron');
 const sqlite = require('sqlite3')
 const path = require('path')
 
@@ -25,6 +30,8 @@ app.whenReady()
 
 if (require('electron-squirrel-startup')) app.quit()
 
+Menu.setApplicationMenu(null)
+
 const dbPath = path.join(__dirname, "livros.db")
 const db = new sqlite.Database(dbPath)
 
@@ -32,7 +39,7 @@ ipcMain.handle("db", (_, query) =>
 {
     function request()
     {
-        let dados = new Promise((resolve, reject) =>
+        const dados = new Promise((resolve, reject) =>
         {
             db.all(query, (err, rows) =>
             {

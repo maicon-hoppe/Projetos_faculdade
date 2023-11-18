@@ -36,9 +36,87 @@
         "autor":"José de Alencar"
     },
     {
+        "titulo": "A Viuvinha",
+        "capa": "pdfs/capas/capa_A_viuvinha.jpg",
+        "pdf": "pdfs/JA-A_viuvinha.pdf",
+        "autor":"José de Alencar"
+    },
+    {
         "titulo": "Vidas Secas",
         "capa": "pdfs/capas/capa_Vidas_secas.png",
         "pdf": "pdfs/GR-Vidas_secas.pdf",
         "autor": "Graciliano Ramos"
+    },
+    {
+        "titulo": "Memórias do Cárcere",
+        "capa": "pdfs/capas/capa_Memorias_do_carcere.jpg",
+        "pdf": "pdfs/GR-Memorias_do_carcere.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Angústia",
+        "capa": "pdfs/capas/capa_Angustia.jpg",
+        "pdf": "pdfs/GR-Angustia.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Infância",
+        "capa": "pdfs/capas/capa_Infancia.jpg",
+        "pdf": "pdfs/GR-Infancia.pdf",
+        "autor": "Graciliano Ramos"
+    },
+    {
+        "titulo": "Histórias de Alexandre",
+        "capa": "pdfs/capas/capa_Historias_de_alexandre.png",
+        "pdf": "pdfs/GR-Historias_de_alexandre.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Alexandre e outros heróis",
+        "capa": "pdfs/capas/capa_Alexandre.jpg",
+        "pdf": "pdfs/GR-Alexandre_e_outros_herois.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Reinações de Narizinho",
+        "capa": "pdfs/capas/capa_Narizinho.jpg",
+        "pdf": "pdfs/ML-As_Reinações_de_Narizinho.pdf",
+        "autor": "Monteiro Lobato"
+    },
+    {
+        "titulo": "O Saci",
+        "capa": "pdfs/capas/capa_O_saci.jpg",
+        "pdf": "pdfs/ML-O_saci.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "O Pica-pau Amarelo",
+        "capa": "pdfs/capas/capa_O_picapau_amarelo.jpg",
+        "pdf": "pdfs/ML-O_picapau_amarelo.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "Os 12 trabalhos de Hércules",
+        "capa": "pdfs/capas/capa_Hercules.jpg",
+        "pdf": "pdfs/ML-Os_doze_trabalhos_de_Hercules.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "A chave do tamanho",
+        "capa": "pdfs/capas/capa_A_chave.jpg",
+        "pdf": "pdfs/ML-A_chave_do_tamanho.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "Caçadas de Pedrinho",
+        "capa": "pdfs/capas/capa_Caçada.jpg",
+        "pdf": "pdfs/ML-Caçadas_de_Pedrinho.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "Adicionar Livro",
+        "capa": "pdfs/capas/capa_Adicionar.jpg",
+        "pdf": "*",
+        "autor": "Livros adicionados"
     }
 ]

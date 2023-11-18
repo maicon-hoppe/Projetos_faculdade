@@ -20,16 +20,17 @@
             background-size: cover;
         }
 
-        #container p {
+        #container > ::slotted(p), #container > p {
             width: 100%;
             padding: 5px;
             margin: 0px;
-    
+
             border-radius: 0px 0px 10px 10px;
-            background-color: rgba(0, 255, 255);
+            background-color: rgb(0, 255, 255);
 
             color: black;
             font-weight: bold;
+            text-align: center;
         }
 
         ::slotted(img), img {
@@ -45,9 +46,24 @@
             <slot name="bookCover">
                 <img src="#" alt="capa">
             </slot>
-            <p>
-                <slot name="bookName">Livro</slot>
-            </p>
+            <slot name="bookName">
+                <p>Livro</p>
+            <slot/>
         </section>
     </a>
+
+    <script type="module">
+        const bookTitles = document.querySelectorAll('p')
+
+        document.onload = element =>
+        {
+            if ( element.clientHeight > 28 )
+            {
+                element.style.position = "relative"
+                element.style.bottom = String(element.clientHeight - 28) + "px"
+            }
+        }
+
+        bookTitles.forEach(bookTitle => document.onload(bookTitle) )
+    </script>
 </template>
