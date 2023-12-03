@@ -47,6 +47,7 @@ function bookSection(autor, bookArray)
 {
     const section = document.createElement('section')
     const autorName = document.createElement('h2')
+    const booksDiv = document.createElement('div')
     const books = document.createElement('section')
     const scrollButtonL = document.createElement('button')
     const scrollButtonR = document.createElement('button')
@@ -91,14 +92,11 @@ function bookSection(autor, bookArray)
 
     scrollButtonL.innerText = "<"
     styleScrollButtonL.display = "none"
-    styleScrollButtonL.position = "absolute"
-    styleScrollButtonL.marginTop = "133.5px"
 
     scrollButtonR.innerText = ">"
     styleScrollButtonR.display = bookArray.length > 3 ? "initial" : "none"  // Mudaar o 3
-    styleScrollButtonR.position = "absolute"
-    styleScrollButtonR.right = "30px"
-    styleScrollButtonR.marginTop = "133.5px"
+
+
 
     scrollButtonR.addEventListener('click', () =>
     {
@@ -122,9 +120,8 @@ function bookSection(autor, bookArray)
         
     })
 
-    books.append(scrollButtonL, scrollButtonR)
-
-    section.appendChild(books)
+    booksDiv.append(scrollButtonL, books, scrollButtonR)
+    section.appendChild(booksDiv)
     document.body.appendChild(section)
 }
 
@@ -154,12 +151,57 @@ function configLink(element)
         bookSection(autor, book)
     }
 
-    const addBookDialog = document.querySelector('#add-book-dialog')
-    
-    const addBooksButton = document.querySelector('#add-books')
-    addBooksButton.addEventListener('click', () => addBookDialog.setAttribute('open', true))
+    const addBooksDialog = document.querySelector('#add-book-dialog')
+
+    const addBooksButton = document.querySelector('header > button')
+    addBooksButton.addEventListener('click', () => addBooksDialog.showModal())
 
     const addBooksCover = document.querySelector("frame-livro[data-page='#']")
-    addBooksCover.addEventListener('click', () => addBookDialog.setAttribute('open', true))
-    
+    addBooksCover.style.order = 999
+    addBooksCover.addEventListener('click', () => addBooksDialog.showModal())
+
+    const closeAddBooks = document.querySelector("#close")
+    const cancelAddBooks = document.querySelector('#cancel')
+    closeAddBooks.addEventListener('click', () => addBooksDialog.close())
+    cancelAddBooks.addEventListener('click', () => addBooksDialog.close())
+
+
+    const addBooksTitle = document.querySelector("dialog input[type='text']")
+    const addBooksPdf = document.querySelector("dialog input[type='file']")
+
+    const addBooksConfirm = document.querySelector("#confirm")
+    addBooksConfirm.addEventListener('click', () =>
+    {
+        if (addBooksTitle.value && addBooksPdf.files[0] )
+        {
+            main.send('insertBooks', addBooksTitle.value, addBooksPdf.files[0].path)
+        }
+        else
+        {
+            console.log('Não');
+        }
+    })
+
+    const customBookSection = addBooksCover.parentElement
+    for ( const element of customBookSection.children )
+    {
+        if ( element.tagName === "FRAME-LIVRO" && element.dataset.page !== "#" )
+        {
+            const deleteBookButton = document.createElement('button')
+            const deleteBookIcon = document.createElement('img')
+
+            deleteBookButton.setAttribute('id', 'deleteButton')
+        
+            deleteBookIcon.setAttribute('src', 'assets/icons/delete.png')
+            deleteBookIcon.setAttribute('alt', 'svg')
+
+            deleteBookButton.appendChild(deleteBookIcon)
+            element.shadowRoot.appendChild(deleteBookButton)
+
+            deleteBookButton.addEventListener('click', () =>
+            {
+                main.send('deleteBooks', element.children[1].textContent)
+            })
+        }
+    }
 })()

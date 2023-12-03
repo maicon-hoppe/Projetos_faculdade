@@ -10,9 +10,9 @@
     <title>Documento</title>
 </head>
 <body>
-    <header id="initial-header">
-        <h1>Leitura</h1>
-        <button id="add-books">
+    <header>
+        <h1>Protótipo</h1>
+        <button class="icon-button">
             <span class="material-symbols-outlined">
                 add_box
             </span>
@@ -20,12 +20,19 @@
     </header>
     <hr>
     <dialog id="add-book-dialog">
+        <button id="close" class="button-highlight">X</button>
         <div>
-            <label for="title">Título: </label>
-            <input type="text" id="title">
+            <div>
+                <label for="title">Título: </label>
+                <input type="text" id="title" required>
+            </div>
+            <label for="input-file" class="button-highlight">Enviar Arquivo</label>
+            <input type="file" accept="application/pdf" id="input-file" required>
         </div>
-        <input type="file" id="pdf">
-        <button type="button">Adicionar</button>
+        <div id="action-buttons">
+            <button id="confirm" class="button-highlight">Adicionar</button>
+            <button id="cancel">Cancelar</button>
+        </div>
     </dialog>
 </body>
 </html>

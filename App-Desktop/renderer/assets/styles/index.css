@@ -1,4 +1,4 @@
-#initial-header {
+header {
     display: flex;
     flex-flow: row wrap;
     margin: 0px 5px;
@@ -7,35 +7,77 @@
     align-items: center;
 }
 
-#initial-header >  button {
-    height: 40px;
-    width: 40px;
-    padding: 4px 2px 1px 2px;
+#add-book-dialog[open], 
+#add-book-dialog > div:not(#action-buttons) {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 8px;
+}
+
+#add-book-dialog[open] {
+    padding: 5px;
+
+    border: 1px solid var(--securdary-magenta);
+    border-radius: 10px;
+}
+
+#add-book-dialog > button#close {
+    padding: 3px 6px;
+
+    border-color: red;
+    background-color: red;
+}
+
+#add-book-dialog > div:not(#action-buttons) { margin: 5px auto; }
+
+#add-book-dialog label[for="title"] { width: 20%; }
+#add-book-dialog #title { width: 79%; }
+
+#add-book-dialog label[for='input-file'] { margin: auto; }
+#add-book-dialog #input-file { display: none; }
+
+#add-book-dialog > #action-buttons {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    gap: 5px;
 }
 
 section {
     padding: 10px;
     margin: 10px;
 
-    overflow-x: scroll;
-
-    background-color: #C5F345;
+    border-radius: 10px;
+    background-color: var(--securdary-green);
 }
 
-section::-webkit-scrollbar { display: none; }
+section, div:has(.books) { overflow-x: scroll; }
+:where(section, div:has(.books))::-webkit-scrollbar { display: none; }
 
-section > .books {
+section > div:has(.books) {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+div:has(.books) > button {
+    padding: 1px 10px;
+    border: none;
+}
+
+div:has(.books) > button:first-child {
+    /* background-image: linear-gradient(to right, var(--securdary-green) 40%, transparent); */
+}
+
+div:has(.books) > button:last-child {
+    /* background-image: linear-gradient(to left, var(--securdary-green) 40%, #ffffff00); */
+}
+
+section .books {
     display: flex;
     gap: 10px;
+    margin: 10px 0px;
 
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
 
-section > .books > frame-livro {
-    scroll-snap-align: center;
-}
-
-section > .books > button {
-    background-color: white;
-}
+section .books > frame-livro { scroll-snap-align: center; }

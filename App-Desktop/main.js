@@ -8,9 +8,10 @@ const sqlite = require('sqlite3')
 const path = require('path')
 
 
+let win
 async function createWindow()
 {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         height: 500,
         width: 800,
         webPreferences: {
@@ -52,4 +53,28 @@ ipcMain.handle("db", (_, query) =>
     }
 
     return request()
+})
+
+ipcMain.on('insertBooks', (_, title, file) =>
+{
+    db.run(`INSERT INTO livros
+                (titulo, capa, pdf, autor)
+            VALUES
+                (?, 'pdfs/capas/capa_per.jpeg', ?, 'Livros adicionados')`,
+            title, file
+    )
+
+    win.reload()
+})
+
+ipcMain.on('deleteBooks', (_, title) =>
+{
+    db.run(`DELETE FROM livros
+            WHERE
+                titulo = ?
+            AND
+                autor = 'Livros adicionados'`,
+            title)
+
+    win.reload()
 })

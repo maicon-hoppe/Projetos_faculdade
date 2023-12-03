@@ -6,23 +6,61 @@
 * #23AD0E
 */
 
+:root {
+    --primary-blue: hsl(245, 96%, 52%);
+    --primary-blue-60: hsl(245, 59%, 49%);
+    --primary-blue-lighter: hsl(245, 80%, 60%);
+
+    --securdary-magenta: hsl(244, 40%, 49%);
+
+    --securdary-green: hsl(78, 98%, 76%);
+    --securdary-green-80: hsl(79, 35%, 69%);
+}
+
+* { box-sizing: border-box; }
+
 body {
     padding: 0px;
     margin: 0px;
 
-    /* color: white; */
     font-family: sans-serif;
-
-    /* background-color: darkslategrey; */
 }
 
 button {
-    border: 1px solid black;
-    box-shadow: 1px 1px 1px black;
-    background-color: transparent;
+    cursor: pointer;
+
+    border: 1px solid var(--primary-blue-60);
+    border-radius: 20px;
+    
+    background-color: white;
+}
+
+.icon-button {
+    padding: 5px 30px;
+    color: var(--primary-blue);
+}
+
+button:hover {
+    background-color: var(--securdary-green);
 }
 
 button:active {
     box-shadow: inset 1px 1px 1px black;
     background-color: darkcyan;
+}
+
+.button-highlight {
+    width: fit-content;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: white;
+    border-radius: 20px;
+    border-color: var(--primary-blue);
+    background-color: var(--primary-blue);
+}
+
+.button-highlight:hover {
+    background-color: var(--primary-blue-lighter);
 }

@@ -40,7 +40,6 @@ fs.access(dbPath, fs.constants.F_OK)
             stmt.run(valor.titulo, valor.capa, valor.pdf, valor.autor)
         }
         stmt.finalize()
-
     })
 
     db.close()
