@@ -1,0 +1,184 @@
+* {
+    padding: 0px;
+    margin: 0px;
+
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    background: black url("/media/blurry-gradient-haikei.svg") center center no-repeat fixed;
+    background-size: cover;
+}
+
+
+/* --------Header-------- */
+header {
+    display: flex;
+    flex-flow: row wrap;
+    container-type: inline-size;
+
+    box-shadow: 0px 1px 6px black;
+    border-bottom: 2px solid black;
+
+    background: transparent url("media/blurry-gradient-haikei-dark.svg") top right no-repeat fixed;
+    background-size: cover;
+}
+
+header * {
+    color: white;
+    font-family: 'DM Sans';
+}
+
+header > h1 {
+    font-size: 3vw;
+    margin: 10px 5px;
+}
+
+header > nav { margin: auto auto 0px; }
+
+header button {
+    padding: 5px;
+    margin: 0px 5px;
+
+    border: none;
+    border-bottom: 2px solid black;
+
+    font-size: 2vw;
+    background-color: transparent;
+}
+
+header button:hover { background-color: hsl(225, 54%, 14%); }
+header button.selected { background-image: linear-gradient(0deg, #dbcbd875, transparent 60%); }
+/* --------------------- */
+
+
+/* ---------Main--------- */
+main {
+    width: fit-content;
+    margin: auto;
+}
+
+main > section {
+    padding: 15px;
+    margin-top: 10vw;
+
+    font-family: Arial, Helvetica;
+    font-size: medium;
+    
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+    background-color: white;
+}
+/* --------------------- */
+
+
+/* ----About section---- */
+main #about-section {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 30px;
+
+    text-align: center;
+}
+
+#about-section p { margin-top: 10px; }
+
+#about-section img {
+    height: 200px;
+    width: 200px;
+
+    box-shadow: 0px 1px 8px 1px black;
+    border-radius: 50%;
+}
+/* --------------------- */
+
+
+/* --------Skills-------- */
+
+#grad-section section:first-child { margin-bottom: 10px; }
+
+#grad-section h2 { margin-bottom: 5px; }
+
+#grad-section p {
+    width: 370px;
+    margin: 10px 0px;
+    text-indent: 1em;
+}
+
+#grad-section ul {
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+#grad-section a { text-decoration: none; }
+
+#grad-section ul img {
+    height: 16px;
+    width: 16px;
+}
+/* --------------------- */
+
+
+/* ------Portifolio------ */
+#portifolio-section h2 { margin-bottom: 10px; }
+
+#portifolio-section img {
+    height: 16px;
+    width: 16px;
+}
+/* --------------------- */
+
+
+/* ---Contact Section--- */
+#contact-section h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#contact-section form {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 5px;
+}
+
+#contact-section :is(input[type='text'], input[type='email']) {
+    padding: 5px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#contact-section textarea {
+    padding: 5px;
+
+    border-radius: 5px;
+    resize: none;
+}
+
+#contact-section input[type='submit'] {
+    border: 1px solid #6600ff;
+    border-radius: 10px;
+
+    color: white;
+    background-color: hsl(264, 50%, 50%);
+}
+
+#contact-section input[type='submit']:hover { background-color: #6600ff; }
+/* --------------------- */
+
+@media screen and (width <= 425px) {
+    body { background: white; }
+
+    main > section {
+        box-shadow: none;
+    }
+
+    #contact-section form {
+        align-content: center;
+    }
+}
