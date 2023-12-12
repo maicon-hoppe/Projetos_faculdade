@@ -59,16 +59,13 @@ section > div:has(.books) {
 }
 
 div:has(.books) > button {
-    padding: 1px 10px;
+    padding: 1px 0px;
     border: none;
+    background-color: var(--securdary-green);
 }
 
-div:has(.books) > button:first-child {
-    /* background-image: linear-gradient(to right, var(--securdary-green) 40%, transparent); */
-}
-
-div:has(.books) > button:last-child {
-    /* background-image: linear-gradient(to left, var(--securdary-green) 40%, #ffffff00); */
+div:has(.books) > button:hover {
+    background-color: var(--securdary-green-35);
 }
 
 section .books {

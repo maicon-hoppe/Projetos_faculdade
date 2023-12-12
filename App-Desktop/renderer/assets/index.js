@@ -90,25 +90,18 @@ function bookSection(autor, bookArray)
         books.insertAdjacentHTML('beforeend', html)
     }
 
-    scrollButtonL.innerText = "<"
+    scrollButtonL.innerHTML = `
+    <img src="assets/icons/arrow-before.png" alt="próximo">
+    `
     styleScrollButtonL.display = "none"
 
-    scrollButtonR.innerText = ">"
+    scrollButtonR.innerHTML = `
+    <img src="assets/icons/arrow-next.png" alt="próximo">
+    `
     styleScrollButtonR.display = bookArray.length > 3 ? "initial" : "none"  // Mudaar o 3
 
-
-
-    scrollButtonR.addEventListener('click', () =>
-    {
-        // Mudar esse valor
-        books.scrollLeft += 200
-    })
-
-    scrollButtonL.addEventListener('click', () =>
-    {
-        // Mudar esse valor
-        books.scrollLeft -= 200
-    })
+    scrollButtonR.addEventListener('click', () => books.scrollLeft += 200)
+    scrollButtonL.addEventListener('click', () => books.scrollLeft -= 200)
 
     books.addEventListener('scroll', () => 
     {
@@ -178,7 +171,7 @@ function configLink(element)
         }
         else
         {
-            console.log('Não');
+            console.log('Não'); // TO DO
         }
     })
 

@@ -8,13 +8,13 @@
 
 :root {
     --primary-blue: hsl(245, 96%, 52%);
+    --primary-blue-80-light: hsl(245, 80%, 60%);
     --primary-blue-60: hsl(245, 59%, 49%);
-    --primary-blue-lighter: hsl(245, 80%, 60%);
 
     --securdary-magenta: hsl(244, 40%, 49%);
 
     --securdary-green: hsl(78, 98%, 76%);
-    --securdary-green-80: hsl(79, 35%, 69%);
+    --securdary-green-35: hsl(79, 35%, 69%);
 }
 
 * { box-sizing: border-box; }
@@ -62,5 +62,5 @@ button:active {
 }
 
 .button-highlight:hover {
-    background-color: var(--primary-blue-lighter);
+    background-color: var(--primary-blue-80-light);
 }
