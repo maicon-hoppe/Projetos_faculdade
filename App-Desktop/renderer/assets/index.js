@@ -29,7 +29,7 @@ customElements.define(
             
             if ( shadow.isConnected )
             {
-                getTemplate("Livro.html")
+                getTemplate("templateLivro.html")
                     .then(opcaoLivroTemplate => 
                     {        
                         let opcaoLivro = opcaoLivroTemplate.content
@@ -43,7 +43,7 @@ customElements.define(
 /*
 * Criação de uma seção com livros de um autor
 */
-function bookSection(autor, bookArray)
+function bookSection(autor, imagemAutor, bookArray)
 {
     const section = document.createElement('section')
     const autorName = document.createElement('h2')
@@ -56,6 +56,10 @@ function bookSection(autor, bookArray)
     const styleScrollButtonR = scrollButtonR.style
 
     autorName.innerText = autor
+    autorName.style.backgroundImage = `
+        linear-gradient(to right, var(--securdary-green) 25%, transparent),
+        url('assets/images/${imagemAutor}')
+    `
     section.appendChild(autorName)
 
     books.setAttribute('class', 'books')
@@ -93,12 +97,14 @@ function bookSection(autor, bookArray)
     scrollButtonL.innerHTML = `
     <img src="assets/icons/arrow-before.png" alt="próximo">
     `
-    styleScrollButtonL.display = "none"
+    styleScrollButtonL.opacity = 0
+    styleScrollButtonL.cursor = "default"
 
     scrollButtonR.innerHTML = `
     <img src="assets/icons/arrow-next.png" alt="próximo">
     `
-    styleScrollButtonR.display = bookArray.length > 3 ? "initial" : "none"  // Mudaar o 3
+    styleScrollButtonR.display = bookArray.length <= 3 ? "none" : "initial"  // Mudaar o 3
+    
 
     scrollButtonR.addEventListener('click', () => books.scrollLeft += 200)
     scrollButtonL.addEventListener('click', () => books.scrollLeft -= 200)
@@ -106,11 +112,12 @@ function bookSection(autor, bookArray)
     books.addEventListener('scroll', () => 
     {
         let isScrollStart = books.scrollLeft === 0
-        styleScrollButtonL.display = isScrollStart ? "none" : "initial"
+        styleScrollButtonL.opacity = isScrollStart ? 0 : 1
+        styleScrollButtonL.cursor = isScrollStart ? "default" : "pointer"
 
         let isMaxScroll = books.scrollLeft === books.scrollWidth - books.clientWidth
-        styleScrollButtonR.display = isMaxScroll ? "none" : "initial"
-        
+        styleScrollButtonR.opacity = isMaxScroll ? 0 : 1
+        styleScrollButtonR.cursor = isMaxScroll ? "default" : "pointer"
     })
 
     booksDiv.append(scrollButtonL, books, scrollButtonR)
@@ -135,37 +142,70 @@ function configLink(element)
 (async () =>
 {
     const listaAutores = await main.asyncCall('db', 'SELECT DISTINCT autor FROM livros')
+    const listaImagemAutores = await main.asyncCall("getDir", "renderer/assets/images")
 
     for (const autores of listaAutores)
     {
         let autor = autores['autor']
         let book = await main.asyncCall('db', `SELECT * FROM livros WHERE autor='${autor}'`)
 
-        bookSection(autor, book)
+        listaImagemAutores.forEach(imagemAutor =>
+        {
+            if (imagemAutor.slice(0, -4) === autor)
+            {
+                bookSection(autor, imagemAutor, book)
+
+                const imageIndex = listaImagemAutores.indexOf(imagemAutor)
+                listaImagemAutores.splice(imageIndex, 1)
+            }
+        })
+
     }
 
-    const addBooksDialog = document.querySelector('#add-book-dialog')
-
     const addBooksButton = document.querySelector('header > button')
+    const addBooksDialog = document.querySelector('#add-book-dialog')
     addBooksButton.addEventListener('click', () => addBooksDialog.showModal())
 
     const addBooksCover = document.querySelector("frame-livro[data-page='#']")
     addBooksCover.style.order = 999
     addBooksCover.addEventListener('click', () => addBooksDialog.showModal())
 
-    const closeAddBooks = document.querySelector("#close")
-    const cancelAddBooks = document.querySelector('#cancel')
-    closeAddBooks.addEventListener('click', () => addBooksDialog.close())
-    cancelAddBooks.addEventListener('click', () => addBooksDialog.close())
-
 
     const addBooksTitle = document.querySelector("dialog input[type='text']")
     const addBooksPdf = document.querySelector("dialog input[type='file']")
+    const addBooksPdfLabel = document.querySelector("dialog label[for='input-file']")
+
+    const closeAddBooks = document.querySelector("#close")
+    const cancelAddBooks = document.querySelector('#cancel')
+
+    closeAddBooks.addEventListener('click', () =>
+    {
+        addBooksDialog.close()
+        addBooksPdf.value = ""
+
+        addBooksPdfLabel.classList.remove("selected")
+        addBooksPdfLabel.innerText = "Enviar Arquivo"
+    })
+
+    cancelAddBooks.addEventListener('click', () =>
+    {
+        addBooksDialog.close()
+        addBooksPdf.value = ""
+
+        addBooksPdfLabel.classList.remove("selected")
+        addBooksPdfLabel.innerText = "Enviar Arquivo"
+    })
+
+    addBooksPdf.addEventListener("change", () =>
+    {
+        addBooksPdfLabel.classList.add("selected")
+        addBooksPdfLabel.innerText = "Arquivo Selecionado"
+    })
 
     const addBooksConfirm = document.querySelector("#confirm")
     addBooksConfirm.addEventListener('click', () =>
     {
-        if (addBooksTitle.value && addBooksPdf.files[0] )
+        if ( addBooksTitle.value && addBooksPdf.files[0] )
         {
             main.send('insertBooks', addBooksTitle.value, addBooksPdf.files[0].path)
         }

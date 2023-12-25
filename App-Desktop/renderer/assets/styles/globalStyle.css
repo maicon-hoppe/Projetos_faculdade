@@ -11,11 +11,19 @@
     --primary-blue-80-light: hsl(245, 80%, 60%);
     --primary-blue-60: hsl(245, 59%, 49%);
 
-    --securdary-magenta: hsl(244, 40%, 49%);
+    --secundary-magenta: hsl(244, 40%, 49%);
 
-    --securdary-green: hsl(78, 98%, 76%);
-    --securdary-green-35: hsl(79, 35%, 69%);
+    --secundary-green: hsl(78, 98%, 76%);
+    --secundary-green-35: hsl(79, 35%, 69%);
+
+    --highlight-orange: hsl(23, 96%, 56%); /* Ainda não */
+    --highlight-orange-80-light: hsl(23, 80%, 90%);
+    
+    --highlight-green: hsl(112, 85%, 37%); /* Ainda não */
+    --highlight-green-80-light: hsl(112, 80%, 50%);
 }
+
+:not(input):focus { border: none; }
 
 * { box-sizing: border-box; }
 
@@ -40,9 +48,8 @@ button {
     color: var(--primary-blue);
 }
 
-button:hover {
-    background-color: var(--securdary-green);
-}
+button:focus-visible { outline: none; }
+button:hover { background-color: var(--highlight-orange-80-light); }
 
 button:active {
     box-shadow: inset 1px 1px 1px black;
@@ -61,6 +68,11 @@ button:active {
     background-color: var(--primary-blue);
 }
 
-.button-highlight:hover {
-    background-color: var(--primary-blue-80-light);
+.button-highlight:hover { background-color: var(--primary-blue-80-light); }
+
+.button-highlight.selected {
+    border-color: var(--highlight-green);
+    background-color: var(--highlight-green);
 }
+
+.button-highlight.selected:hover { background-color: var(--highlight-green-80-light); }

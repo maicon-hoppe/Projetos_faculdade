@@ -1,5 +1,47 @@
 [
     {
+        "titulo": "Dom Casmurro",
+        "capa": "pdfs/capas/capa_domCasmurro.jpg",
+        "pdf": "pdfs/MA-DomCasmurro.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
+        "titulo": "Memórias postumas de Brás Cubas",
+        "capa": "pdfs/capas/capa_memorias_postumas.jpeg",
+        "pdf": "pdfs/MA-memoriasBras.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
+        "titulo": "Quincas Borba",
+        "capa": "pdfs/capas/capa_quincas.jpg",
+        "pdf": "pdfs/MA-quincas.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
+        "titulo": "O Alienista",
+        "capa": "pdfs/capas/capa_O_alienista.jpg",
+        "pdf": "pdfs/MA-O_alienista.pdf",
+        "autor":"Machado de Assís"
+    },
+    {
+        "titulo": "Helena",
+        "capa": "pdfs/capas/capa_Helena.jpg",
+        "pdf": "pdfs/MA-helena.pdf",
+        "autor":"Machado de Assís"
+    },
+    {
+        "titulo": "Esaú e Jacó",
+        "capa": "pdfs/capas/capa_Esau_e_jaco.jpg",
+        "pdf": "pdfs/MA-Esau_e_jaco.pdf",
+        "autor":"Machado de Assís"
+    },
+    {
+        "titulo": "Casa velha",
+        "capa": "pdfs/capas/capa_casa_velha.jpg",
+        "pdf": "pdfs/MA-casaVelha.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
         "titulo": "Iracema",
         "capa": "pdfs/capas/capa_Iracema.jpg",
         "pdf": "pdfs/JA-Iracema.pdf",

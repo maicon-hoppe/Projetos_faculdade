@@ -6,14 +6,18 @@ const {
 } = require('electron');
 const sqlite = require('sqlite3')
 const path = require('path')
+const fs = require('fs/promises');
 
 
 let win
 async function createWindow()
 {
     win = new BrowserWindow({
-        height: 500,
-        width: 800,
+        height: 484,
+        minHeight: 484,
+        width: 752,
+        minWidth: 752,
+        icon: path.join(__dirname, "renderer/assets/icons/top-icon.png"),
         webPreferences: {
             preload: path.join(__dirname, "preload.js")
         }
@@ -55,6 +59,8 @@ ipcMain.handle("db", (_, query) =>
     return request()
 })
 
+ipcMain.handle("getDir", (_, dirPath) => fs.readdir(dirPath))
+
 ipcMain.on('insertBooks', (_, title, file) =>
 {
     db.run(`INSERT INTO livros
@@ -74,7 +80,8 @@ ipcMain.on('deleteBooks', (_, title) =>
                 titulo = ?
             AND
                 autor = 'Livros adicionados'`,
-            title)
+            title
+    )
 
     win.reload()
 })
