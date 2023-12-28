@@ -16,14 +16,14 @@
     --secundary-green: hsl(78, 98%, 76%);
     --secundary-green-35: hsl(79, 35%, 69%);
 
-    --highlight-orange: hsl(23, 96%, 56%); /* Ainda não */
+    --highlight-orange: hsl(23, 96%, 56%);
     --highlight-orange-80-light: hsl(23, 80%, 90%);
     
-    --highlight-green: hsl(112, 85%, 37%); /* Ainda não */
+    --highlight-green: hsl(112, 85%, 37%);
     --highlight-green-80-light: hsl(112, 80%, 50%);
 }
 
-:not(input):focus { border: none; }
+:not(input, button):focus { border: none; }
 
 * { box-sizing: border-box; }
 
@@ -36,6 +36,7 @@ body {
 
 button {
     cursor: pointer;
+    user-select: none;
 
     border: 1px solid var(--primary-blue-60);
     border-radius: 20px;
@@ -53,7 +54,7 @@ button:hover { background-color: var(--highlight-orange-80-light); }
 
 button:active {
     box-shadow: inset 1px 1px 1px black;
-    background-color: darkcyan;
+    background-color: var(--secundary-green-35);
 }
 
 .button-highlight {

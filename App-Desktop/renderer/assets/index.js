@@ -57,7 +57,7 @@ function bookSection(autor, imagemAutor, bookArray)
 
     autorName.innerText = autor
     autorName.style.backgroundImage = `
-        linear-gradient(to right, var(--securdary-green) 25%, transparent),
+        linear-gradient(to right, var(--secundary-green) 25%, transparent),
         url('assets/images/${imagemAutor}')
     `
     section.appendChild(autorName)
@@ -106,8 +106,8 @@ function bookSection(autor, imagemAutor, bookArray)
     styleScrollButtonR.display = bookArray.length <= 3 ? "none" : "initial"  // Mudaar o 3
     
 
-    scrollButtonR.addEventListener('click', () => books.scrollLeft += 200)
-    scrollButtonL.addEventListener('click', () => books.scrollLeft -= 200)
+    scrollButtonR.addEventListener('click', () => books.scrollLeft += 210)
+    scrollButtonL.addEventListener('click', () => books.scrollLeft -= 210)
 
     books.addEventListener('scroll', () => 
     {
@@ -143,11 +143,11 @@ function configLink(element)
 {
     const listaAutores = await main.asyncCall('db', 'SELECT DISTINCT autor FROM livros')
     const listaImagemAutores = await main.asyncCall("getDir", "renderer/assets/images")
-
+    
     for (const autores of listaAutores)
     {
-        let autor = autores['autor']
-        let book = await main.asyncCall('db', `SELECT * FROM livros WHERE autor='${autor}'`)
+        const autor = autores['autor']
+        const book = await main.asyncCall('db', `SELECT * FROM livros WHERE autor='${autor}'`)
 
         listaImagemAutores.forEach(imagemAutor =>
         {
@@ -162,6 +162,7 @@ function configLink(element)
 
     }
 
+    // Dialog
     const addBooksButton = document.querySelector('header > button')
     const addBooksDialog = document.querySelector('#add-book-dialog')
     addBooksButton.addEventListener('click', () => addBooksDialog.showModal())
@@ -211,7 +212,25 @@ function configLink(element)
         }
         else
         {
-            console.log('Não'); // TO DO
+            let count = 0
+            const dialogHighlightRing = setInterval(() =>
+            {
+                addBooksDialog.style.outline =
+                addBooksDialog.style.outline === "none"
+                ?
+                    "2px solid var(--highlight-orange-80-light)"
+                :
+                    "none"
+
+                if ( count++ === 4 )
+                {
+                    addBooksDialog.style.outline = "none"
+                    clearInterval(dialogHighlightRing)
+                }
+            },
+            100)
+
+            addBooksTitle.focus()
         }
     })
 

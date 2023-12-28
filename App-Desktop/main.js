@@ -23,10 +23,7 @@ async function createWindow()
         }
     })
 
-    win.webContents.openDevTools()
-
-    // await win.loadFile("renderer/index.html")
-    await win.loadURL("http://localhost:5500/renderer/index.html")
+    await win.loadFile("renderer/index.html")
 }
 
 app.whenReady()

@@ -50,16 +50,16 @@ header > div > h1 { margin: 0px; }
     gap: 8px;
 }
 
+#add-book-dialog[open] :is(h3, label[for="title"]) { user-select: none; }
+
 #add-book-dialog[open] {
     padding: 5px;
-    border-radius: 10px;
 
+    border: 1px solid var(--secundary-magenta);
+    border-radius: 10px;
 }
 
 #add-book-dialog[open]::backdrop { backdrop-filter: blur(10px); }
-
-#add-book-dialog[open],
-#add-book-dialog[open]:focus { border: 1px solid var(--secundary-magenta); }
 
 #add-book-dialog > :where(div:not(#action-buttons)) { margin: 5px auto; }
 
@@ -86,6 +86,7 @@ header > div > h1 { margin: 0px; }
 #add-book-dialog #title:focus { outline-color: var(--highlight-orange); }
 
 #add-book-dialog label[for='input-file'] { margin: auto; }
+#add-book-dialog label[for='input-file']:focus { outline: 5px solid var(--highlight-green); }
 #add-book-dialog #input-file { display: none; }
 
 #add-book-dialog > #action-buttons {
@@ -110,6 +111,14 @@ section:has(.books) {
 
     box-shadow: 1px 1px 2px black;
     background-color: var(--secundary-green);
+}
+
+@media (width > 737px) and (width < 1185px) {
+    section:has(.books) {
+        max-width: 717px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (width > 1185px) {
