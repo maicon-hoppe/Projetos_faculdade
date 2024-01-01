@@ -31,7 +31,15 @@ header > div {
     gap: 6px;
     margin: 8px 6px;
 
+    user-select: none;
+    pointer-events: none;
+
     font-family: "Playfair Display", serif;
+}
+
+header > div > img {
+    height: 45px;
+    width: 45px;
 }
 
 header > div > h1 { margin: 0px; }

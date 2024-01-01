@@ -142,7 +142,7 @@ function configLink(element)
 (async () =>
 {
     const listaAutores = await main.asyncCall('db', 'SELECT DISTINCT autor FROM livros')
-    const listaImagemAutores = await main.asyncCall("getDir", "renderer/assets/images")
+    const listaImagemAutores = await main.asyncCall("getDir", 'renderer/assets/images')
     
     for (const autores of listaAutores)
     {

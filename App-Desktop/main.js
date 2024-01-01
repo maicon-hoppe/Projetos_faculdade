@@ -17,7 +17,7 @@ async function createWindow()
         minHeight: 484,
         width: 752,
         minWidth: 752,
-        icon: path.join(__dirname, "renderer/assets/icons/top-icon.png"),
+        icon: path.join(__dirname, "/renderer/assets/icons/top-icon.png"),
         webPreferences: {
             preload: path.join(__dirname, "preload.js")
         }
@@ -56,7 +56,7 @@ ipcMain.handle("db", (_, query) =>
     return request()
 })
 
-ipcMain.handle("getDir", (_, dirPath) => fs.readdir(dirPath))
+ipcMain.handle("getDir", (_, dirPath) => fs.readdir(path.join(__dirname, dirPath)))
 
 ipcMain.on('insertBooks', (_, title, file) =>
 {
