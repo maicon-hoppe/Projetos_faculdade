@@ -151,7 +151,7 @@ function configLink(element)
 
         listaImagemAutores.forEach(imagemAutor =>
         {
-            if (imagemAutor.slice(0, -4) === autor)
+            if (imagemAutor.slice(0, 3) === autor.slice(0, 3))
             {
                 bookSection(autor, imagemAutor, book)
 

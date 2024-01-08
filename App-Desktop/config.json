@@ -1,7 +1,0 @@
-{
-    "genericName": "Biblioteca",
-    "productName": "Minha biblioteca",
-    "productDescription": "Biblioteca de livros nacionais.",
-    "categories": [ "Education" ],
-    "icon": { "scalable": "renderer/assets/icons/top-icon.svg" }
-}
