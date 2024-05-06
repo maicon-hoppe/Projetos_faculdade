@@ -1,0 +1,94 @@
+<template>
+    <style>
+        a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #container {
+            display: inline-flex;
+            flex-flow: row wrap;
+
+            height: 288px;
+            width: 206px;
+
+            user-select: none;
+
+            border-radius: 10px;
+            box-shadow: 1px 1px 2px black;
+
+            background: white center center no-repeat scroll;
+            background-size: cover;
+        }
+
+        #container > ::slotted(p), #container > p {
+            width: 100%;
+            padding: 5px;
+            margin: 0px;
+
+            border-radius: 0px 0px 10px 10px;
+            background-color: rgb(0, 255, 255);
+
+            color: black;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        ::slotted(img), img {
+            height: 260px;
+            width: 206px;
+            
+            pointer-events: none;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        #deleteButton {
+            height: 30px;
+            width: 30px;
+            padding: 3px;
+            margin: 6px 0px 0px 170px;
+
+            position: absolute;
+
+            border: 1px solid #F55D42;
+            border-radius: 20px;
+
+            background-color: #ff000085;
+        }
+
+        #deleteButton:hover { background-color: #c9513c; }
+        #deleteButton:active { background-color: #ff8a75; }
+
+        #deleteButton > img {
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+
+    <a href="#">
+        <section id="container">
+            <slot name="bookCover">
+                <img src="#" alt="capa">
+            </slot>
+            <slot name="bookName">
+                <p>Livro</p>
+            <slot/>
+        </section>
+    </a>
+
+    <script type="module">
+        const bookTitles = document.querySelectorAll('p')
+
+        document.onload = element =>
+        {
+            if ( element.clientHeight > 28 )
+            {
+                element.style.position = "relative"
+                element.style.bottom = String(element.clientHeight - 28) + "px"
+            }
+        }
+
+        bookTitles.forEach(bookTitle => document.onload(bookTitle) )
+    </script>
+</template>

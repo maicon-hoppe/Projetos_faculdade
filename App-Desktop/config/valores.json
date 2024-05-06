@@ -1,0 +1,164 @@
+[
+    {
+        "titulo": "Dom Casmurro",
+        "capa": "pdfs/capas/capa_domCasmurro.jpg",
+        "pdf": "pdfs/MA-DomCasmurro.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
+        "titulo": "Memórias postumas de Brás Cubas",
+        "capa": "pdfs/capas/capa_memorias_postumas.jpeg",
+        "pdf": "pdfs/MA-memoriasBras.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
+        "titulo": "Quincas Borba",
+        "capa": "pdfs/capas/capa_quincas.jpg",
+        "pdf": "pdfs/MA-quincas.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
+        "titulo": "O Alienista",
+        "capa": "pdfs/capas/capa_O_alienista.jpg",
+        "pdf": "pdfs/MA-O_alienista.pdf",
+        "autor":"Machado de Assís"
+    },
+    {
+        "titulo": "Helena",
+        "capa": "pdfs/capas/capa_Helena.jpg",
+        "pdf": "pdfs/MA-helena.pdf",
+        "autor":"Machado de Assís"
+    },
+    {
+        "titulo": "Esaú e Jacó",
+        "capa": "pdfs/capas/capa_Esau_e_jaco.jpg",
+        "pdf": "pdfs/MA-Esau_e_jaco.pdf",
+        "autor":"Machado de Assís"
+    },
+    {
+        "titulo": "Casa velha",
+        "capa": "pdfs/capas/capa_casa_velha.jpg",
+        "pdf": "pdfs/MA-casaVelha.pdf",
+        "autor": "Machado de Assís"
+    },
+    {
+        "titulo": "Iracema",
+        "capa": "pdfs/capas/capa_Iracema.jpg",
+        "pdf": "pdfs/JA-Iracema.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "O Guaraní",
+        "capa": "pdfs/capas/capa_O_Gurani.jpg",
+        "pdf": "pdfs/JA-O_guarani.pdf",
+        "autor":"José de Alencar"
+    },
+    {
+        "titulo": "O Tronco de Ipê",
+        "capa": "pdfs/capas/capa_O_tronco_de_ipe.jpg",
+        "pdf": "pdfs/JA-O_Tronco_do_Ipe.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "O Gaúcho",
+        "capa": "pdfs/capas/capa_O_gaucho.jpg",
+        "pdf": "pdfs/JA-O_gaucho.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "O Sertanejo",
+        "capa": "pdfs/capas/capa_O_sertanejo.jpg",
+        "pdf": "pdfs/JA-O_sertanejo.pdf",
+        "autor": "José de Alencar"
+    },
+    {
+        "titulo": "Senhora",
+        "capa": "pdfs/capas/capa_Senhora.jpg",
+        "pdf": "pdfs/JA-Senhora.pdf",
+        "autor":"José de Alencar"
+    },
+    {
+        "titulo": "A Viuvinha",
+        "capa": "pdfs/capas/capa_A_viuvinha.jpg",
+        "pdf": "pdfs/JA-A_viuvinha.pdf",
+        "autor":"José de Alencar"
+    },
+    {
+        "titulo": "Vidas Secas",
+        "capa": "pdfs/capas/capa_Vidas_secas.png",
+        "pdf": "pdfs/GR-Vidas_secas.pdf",
+        "autor": "Graciliano Ramos"
+    },
+    {
+        "titulo": "Memórias do Cárcere",
+        "capa": "pdfs/capas/capa_Memorias_do_carcere.jpg",
+        "pdf": "pdfs/GR-Memorias_do_carcere.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Angústia",
+        "capa": "pdfs/capas/capa_Angustia.jpg",
+        "pdf": "pdfs/GR-Angustia.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Infância",
+        "capa": "pdfs/capas/capa_Infancia.jpg",
+        "pdf": "pdfs/GR-Infancia.pdf",
+        "autor": "Graciliano Ramos"
+    },
+    {
+        "titulo": "Histórias de Alexandre",
+        "capa": "pdfs/capas/capa_Historias_de_alexandre.png",
+        "pdf": "pdfs/GR-Historias_de_alexandre.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Alexandre e outros heróis",
+        "capa": "pdfs/capas/capa_Alexandre.jpg",
+        "pdf": "pdfs/GR-Alexandre_e_outros_herois.pdf",
+        "autor":"Graciliano Ramos"
+    },
+    {
+        "titulo": "Reinações de Narizinho",
+        "capa": "pdfs/capas/capa_Narizinho.jpg",
+        "pdf": "pdfs/ML-As_Reinações_de_Narizinho.pdf",
+        "autor": "Monteiro Lobato"
+    },
+    {
+        "titulo": "O Saci",
+        "capa": "pdfs/capas/capa_O_saci.jpg",
+        "pdf": "pdfs/ML-O_saci.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "O Pica-pau Amarelo",
+        "capa": "pdfs/capas/capa_O_picapau_amarelo.jpg",
+        "pdf": "pdfs/ML-O_picapau_amarelo.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "Os 12 trabalhos de Hércules",
+        "capa": "pdfs/capas/capa_Hercules.jpg",
+        "pdf": "pdfs/ML-Os_doze_trabalhos_de_Hercules.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "A chave do tamanho",
+        "capa": "pdfs/capas/capa_A_chave.jpg",
+        "pdf": "pdfs/ML-A_chave_do_tamanho.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "Caçadas de Pedrinho",
+        "capa": "pdfs/capas/capa_Cacada.jpg",
+        "pdf": "pdfs/ML-Cacadas_de_Pedrinho.pdf",
+        "autor":"Monteiro Lobato"
+    },
+    {
+        "titulo": "Adicionar Livro",
+        "capa": "pdfs/capas/capa_Adicionar.jpg",
+        "pdf": "*",
+        "autor": "Livros adicionados"
+    }
+]
