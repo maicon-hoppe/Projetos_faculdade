@@ -1,0 +1,37 @@
+{
+  "name": "minha-biblioteca",
+  "productName": "Minha biblioteca",
+  "genericName": "Biblioteca",
+  "productDescription": "Biblioteca de livros nacionais.",
+  "version": "1.0.0",
+  "description": "Minha biblioteca",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "refresh-data": "node config/database.js",
+    "build-linux": "electron-packager . minha-biblioteca --out dist/ --arch x64 --platform linux",
+    "build-win": "electron-packager . minha-biblioteca --out dist/ --arch x64 --platform win32",
+    "prepack-linux": "cd 'dist/minha-biblioteca-linux-x64/resources/app' && npm i sqlite3 --target_platform=linux",
+    "prepack-win": "cd dist/minha-biblioteca-win32-x64/resources/app && npm i sqlite3 --target_platform=win32",
+    "make-deb": "electron-installer-debian --src './dist/minha-biblioteca-linux-x64/' --dest ./dist/ --arch amd64 --config linux-config.json",
+    "make-exe": "electron-installer-windows --src ./dist/minha-biblioteca-win32-x64/ --dest ./dist/ --config windows-config.json"
+  },
+  "keywords": [
+    "electron",
+    "sqlite3"
+  ],
+  "author": "Maicon J. Hoppe",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^30.0.2",
+    "electron-installer-windows": "^3.0.0",
+    "electron-packager": "^17.1.2",
+    "sqlite3": "^5.1.7"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "electron-installer-debian": "^3.2.0"    
+  }
+}

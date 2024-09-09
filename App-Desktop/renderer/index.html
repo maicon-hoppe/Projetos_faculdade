@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/globalStyle.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+    <script src="assets/index.js" defer></script>
+    <title>Literatura Nacional</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="assets/icons/top-icon.png" alt="ico">
+            <h1>LITERATURA NACIONAL</h1>
+        </div>
+        <button class="icon-button">
+            <img src="assets/icons/add-button.png" alt="adicionar livro">
+        </button>
+    </header>
+    <dialog id="add-book-dialog">
+        <div>
+            <h3>Adicionar livro:</h3>
+            <button id="close" class="button-highlight">X</button>
+        </div>
+        <div>
+            <div>
+                <label for="title">Título: </label>
+                <input type="text" id="title" required>
+            </div>
+            <label for="input-file" class="button-highlight">Enviar Arquivo</label>
+            <input type="file" accept="application/pdf" id="input-file" required />
+        </div>
+        <div id="action-buttons">
+            <button id="confirm" class="button-highlight">Adicionar</button>
+            <button id="cancel">Cancelar</button>
+        </div>
+    </dialog>
+</body>
+</html>

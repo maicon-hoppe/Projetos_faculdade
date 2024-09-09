@@ -1,0 +1,79 @@
+/* Paleta
+* #524BAD
+* #FA7725
+* #210FFA
+* #DEFE87
+* #23AD0E
+*/
+
+:root {
+    --primary-blue: hsl(245, 96%, 52%);
+    --primary-blue-80-light: hsl(245, 80%, 60%);
+    --primary-blue-60: hsl(245, 59%, 49%);
+
+    --secundary-magenta: hsl(244, 40%, 49%);
+
+    --secundary-green: hsl(78, 98%, 76%);
+    --secundary-green-35: hsl(79, 35%, 69%);
+
+    --highlight-orange: hsl(23, 96%, 56%);
+    --highlight-orange-80-light: hsl(23, 80%, 90%);
+    
+    --highlight-green: hsl(112, 85%, 37%);
+    --highlight-green-80-light: hsl(112, 80%, 50%);
+}
+
+:not(input, button):focus { border: none; }
+
+* { box-sizing: border-box; }
+
+body {
+    padding: 0px;
+    margin: 0px;
+
+    font-family: sans-serif;
+}
+
+button {
+    cursor: pointer;
+    user-select: none;
+
+    border: 1px solid var(--primary-blue-60);
+    border-radius: 20px;
+    
+    background-color: white;
+}
+
+.icon-button {
+    padding: 5px 30px;
+    color: var(--primary-blue);
+}
+
+button:focus-visible { outline: none; }
+button:hover { background-color: var(--highlight-orange-80-light); }
+
+button:active {
+    box-shadow: inset 1px 1px 1px black;
+    background-color: var(--secundary-green-35);
+}
+
+.button-highlight {
+    width: fit-content;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: white;
+    border-radius: 20px;
+    border-color: var(--primary-blue);
+    background-color: var(--primary-blue);
+}
+
+.button-highlight:hover { background-color: var(--primary-blue-80-light); }
+
+.button-highlight.selected {
+    border-color: var(--highlight-green);
+    background-color: var(--highlight-green);
+}
+
+.button-highlight.selected:hover { background-color: var(--highlight-green-80-light); }
